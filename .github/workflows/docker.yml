@@ -1,0 +1,28 @@
+name: image_build
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    tags:
+      - v*
+
+env:
+  IMAGE_NAME: ghatest
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build Image
+        run: docker build -t $IMAGE_NAME .
+
+      - name: Log in to DockerHub
+        run: echo "${{ secrets.WKOKOLIS_DOCKERHUB }}" | docker login -u wkokolis --password-stdin
+
+      - name: Push image
+        run: docker push $IMAGE_NAME
