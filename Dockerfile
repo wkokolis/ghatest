@@ -1,6 +1,7 @@
 FROM python:3.7.2-alpine
 
 LABEL maintainer="William Kokolis <william@kokolis.net>"
+LABEL org.opencontainers.image.source https://github.com/wkokolis/ghatest
 
 RUN addgroup pyrunner \
   && adduser -S -G pyrunner pyrunner \
