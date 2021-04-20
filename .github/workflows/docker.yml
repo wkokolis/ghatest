@@ -27,7 +27,7 @@ jobs:
 #        run: echo "${{ secrets.WKOKOLIS_DOCKERHUB }}" | docker login -u wkokolis --password-stdin
 
       - name: Log into GitHub container registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login https://docker.pkg.github.com -u wkokolis --password-stdin
+        run: echo "${{ secrets.MY_TOKEN }}" | docker login https://docker.pkg.github.com -u wkokolis --password-stdin
 
       - name: Push image
         run: docker push $REGISTRY/$ORG_NAME/$IMAGE_NAME
