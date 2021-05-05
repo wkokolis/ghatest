@@ -1,10 +1,9 @@
-name: Sonar
+name: Perform Sonarqube scan
 
 on: 
   pull_request:
     types: [opened, synchronize, reopened]
 
-name: Perform scan
 jobs:
   sonarqube:
     runs-on: ubuntu-latest
