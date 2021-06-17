@@ -25,11 +25,11 @@ jobs:
 
       - name: 'Get tag from ref'
         id: getTag
-        if: contains(github.ref, "refs/tags")
+        if: contains(github.ref, 'tags')
         uses: olegtarasov/get-tag@v2.1
       - name: 'Build tagged image'
         id: tagBuild
-        if: contains(github.ref, "refs/tags") 
+        if: contains(github.ref, 'tags') 
         run: docker build -t $ORG_NAME/$IMAGE_NAME:${{ steps.getTag.outputs.tag }} .
 
 #      - name: Log in to DockerHub
