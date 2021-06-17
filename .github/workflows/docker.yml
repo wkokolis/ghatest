@@ -26,7 +26,7 @@ jobs:
       - name: 'Get tag from ref'
         id: getTag
         if: contains(github.ref, "refs/tags")
-        uses: uses: olegtarasov/get-tag@v2.1
+        uses: olegtarasov/get-tag@v2.1
       - name: 'Build tagged image'
         id: tagBuild
         if: contains(github.ref, "refs/tags") 
